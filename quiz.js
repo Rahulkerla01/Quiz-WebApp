@@ -7,9 +7,16 @@ let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
 
-let questions = {
-
-};
+let questions = [
+    {
+      question: "Ques 1",
+      choice1: "choice 1",
+      choice2: "choice 2",
+      choice3: "choice 3",
+      choice4: "choice 4",
+      answer: 1
+    }
+];
 
 const CORRECT_BONUS = 10;
 const MAX_QUESIONS = 3;
@@ -51,7 +58,7 @@ choices.forEach(choice => {
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.dataset["number"];
 
-        console.log(selectedAnswer);
+        // console.log(selectedAnswer);
         getNewQuestion();
     });
 });
