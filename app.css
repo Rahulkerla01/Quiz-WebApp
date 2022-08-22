@@ -3,6 +3,11 @@
     font-size: 62.5%;
 }
 
+.choice-text {
+    padding: 1.5rem;
+    width: 100%;
+}
+
 *{
     box-sizing: border-box;
     font-family: Arial,Helvetica,ans-serif;
@@ -47,6 +52,7 @@ h3{
     align-items: center;
     max-width: 80rem;
     margin: 0 auto;
+    padding: 2rem;
 }
 
 .container > *{
