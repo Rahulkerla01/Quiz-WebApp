@@ -9,12 +9,28 @@ let availableQuestions = [];
 
 let questions = [
     {
-      question: "Ques 1",
+      question: "Ques 1?",
       choice1: "choice 1",
       choice2: "choice 2",
       choice3: "choice 3",
       choice4: "choice 4",
       answer: 1
+    },
+    {
+        question: "Ques 2?",
+        choice1: "choice 1",
+        choice2: "choice 2",
+        choice3: "choice 3",
+        choice4: "choice 4",
+        answer: 1
+    },
+    {
+        question: "Ques 3?",
+        choice1: "choice 1",
+        choice2: "choice 2",
+        choice3: "choice 3",
+        choice4: "choice 4",
+        answer: 1
     }
 ];
 
@@ -25,7 +41,7 @@ startGame = () => {
     questionCounter = 0;
     score = 0;
     availableQuestions = [...questions];
-    console.log(availableQuestions);
+    // console.log(availableQuestions);
     getNewQuestion();
 };
 
@@ -37,7 +53,7 @@ getNewQuestion = () => {
     }
 
     questionCounter++;
-    const questionIndex = availableQuestions[Math.floor(Math.random * availableQuestions,length)];
+    const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
     question.innerText = currentQuestion.question; 
 
@@ -58,8 +74,17 @@ choices.forEach(choice => {
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.dataset["number"];
 
-        // console.log(selectedAnswer);
+        let classToApply = 'incorrect';
+        if(selectedAnswer == currentQuestion.answer) {
+            classToApply = 'correct';
+        }
+
+        selectedChoice.parentElement.classList.add(classToApply);
+
+        setTimeout ( () => {
+        selectedChoice.parentElement.classList.remove(classToApply);
         getNewQuestion();
+        }, 1000);
     });
 });
 
